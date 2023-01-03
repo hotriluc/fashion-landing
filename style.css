@@ -1,0 +1,230 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffea;
+  font-family: "Noto Serif Display", serif;
+  height: 100vh;
+}
+
+.wrapper {
+  background-color: #ffffea;
+  width: 100rem;
+  height: 100%;
+  margin: 0 auto;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  transition: all 0.3s;
+}
+
+section {
+  padding: 2rem;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* HERO SECTION */
+
+.hero {
+  /* background-color: red; */
+  height: 100%;
+  margin-top: 15em;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 2fr;
+  grid-template-rows: repeat(3, min-content);
+  gap: 2rem;
+
+  position: relative;
+}
+
+.hero::before {
+  position: absolute;
+  content: "WOW";
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 20rem;
+  z-index: -1;
+  top: -190px;
+  left: -200px;
+}
+
+.hero__heading {
+  grid-column: 2/-1;
+  font-size: 10rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transform: scale(1, 1.9);
+
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  grid-column: 3/-1;
+  grid-row: 2/-1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero__img--1,
+.hero__img--2,
+.hero__img--3 {
+  overflow: hidden;
+}
+
+.hero__img--1 img:hover,
+.hero__img--2 img:hover,
+.hero__img--3 img:hover {
+  transform: scale(2);
+}
+
+.hero__img--1 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.hero__img--2 {
+  grid-column: 2;
+  grid-row: 2 / -1;
+  height: 600px;
+}
+
+.hero__img--3 {
+  grid-column: 1;
+  grid-row: 3/-1;
+}
+
+/* ABOUT SECTION */
+
+.about {
+  display: grid;
+  gap: 2rem;
+
+  grid-template-areas:
+    "title text text"
+    "title card1  card1"
+    "title card2  card3";
+
+  grid-template-columns: 90px 1fr 1fr;
+  grid-template-rows: min-content 400px 1fr;
+}
+
+.about__heading {
+  grid-area: title;
+  font-size: 10rem;
+
+  font-weight: 400;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+  line-height: 1;
+  transform: scale(1.2, 1);
+}
+
+.about__text-heading {
+  grid-area: text;
+  font-size: 10rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  transform: scale(1, 1.9);
+}
+
+.about__text {
+  grid-area: text2;
+  font-size: 10rem;
+}
+
+.about__card--1 {
+  grid-area: card1;
+  position: relative;
+}
+
+.about__card--1::after {
+  content: "&";
+  font-size: 8rem;
+  font-weight: 200;
+
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+
+.about__card--2 {
+  grid-area: card2;
+  position: relative;
+}
+
+.about__card--2::after {
+  content: "to";
+  font-size: 8rem;
+  font-weight: 200;
+  text-transform: uppercase;
+
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 50%;
+  transform: translate(calc(50% + 2rem), 50%);
+}
+
+.about__card--3 {
+  grid-area: card3;
+  position: relative;
+}
+
+.card {
+}
+
+.card-front {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.card-front__image {
+}
+
+.card-front__text {
+  position: absolute;
+  font-weight: 300;
+  font-size: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleY(3);
+}
