@@ -1,23 +1,36 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+import { gsap } from "gsap";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+gsap.registerPlugin(ScrollTrigger);
 
-setupCounter(document.querySelector('#counter'))
+const heroImgTL = gsap.timeline();
+const heroTextTL = gsap.timeline();
+
+// Hero Text animations
+heroTextTL.from(".hero__heading", { x: 100, opacity: 0, duration: 1 });
+heroTextTL.from(".hero__content-text", {
+  y: 70,
+  opacity: 0,
+  duration: 0.7,
+});
+heroTextTL.from(
+  ".hero__contact-btn",
+  {
+    x: 100,
+    opacity: 0,
+    duration: 0.7,
+  },
+  "<"
+);
+
+// Hero cards animations
+heroImgTL.from(".hero__card", {
+  duration: 1,
+  stagger: 0.5,
+  y: 100,
+  opacity: 0,
+});
+heroImgTL.from(
+  ".hero__behind",
+  { y: -100, opacity: 0, duration: 0.8 },
+  "-=0.8"
+);
