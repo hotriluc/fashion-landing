@@ -89,7 +89,7 @@ gsap.from(".about__connection--1, .about__connection--2", {
 });
 
 gsap.from(".about__card--2, .card-2-text", {
-  x: -100,
+  x: 100,
   opacity: 0,
   duration: 1,
   stagger: 0.7,
@@ -102,7 +102,7 @@ gsap.from(".about__card--2, .card-2-text", {
 });
 
 gsap.from(".about__card--3, .card-3-text", {
-  x: 100,
+  x: -100,
   opacity: 0,
   duration: 1,
   stagger: 0.7,
